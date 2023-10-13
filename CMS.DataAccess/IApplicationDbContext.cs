@@ -12,6 +12,8 @@ namespace CMS.DataAccess
     {
         DbSet<Pastor> Pastors { get; set; }
         DbSet<Choir> Choirs { get; set; }
+        DbSet<SourceofIncome> SourceofIncomes { get; set; }
+
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

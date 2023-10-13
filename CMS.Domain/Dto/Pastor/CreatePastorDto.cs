@@ -8,10 +8,11 @@ namespace CMS.Domain.Dto.Pastor
 {
     public class CreatePastorDto
     {
+
         public string Name { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string Rank { get; set; }
-        public object Description { get; set; }
+        public string Description { get; set; }
     }
 }

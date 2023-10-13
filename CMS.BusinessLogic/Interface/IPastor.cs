@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CMS.Domain.Dto.Pastor;
+using CMS.Domain.Models;
 
 namespace CMS.BusinessLogic.Interface
 {
-    internal interface IPastor
+    public interface IPastor
     {
+        Task<APIListResponse3<Pastor>> GetPastor(int pageNumber, int pageSize);
+        Task<APIResponse<Pastor>> GetSinglePastor(int Id);
+        Task<APIResponse<CreatePastorDto>> CreatePastor(CreatePastorDto request);
+        Task<APIResponse<UpdatePastorDto>> UpdatePastor(UpdatePastorDto request);
     }
 }

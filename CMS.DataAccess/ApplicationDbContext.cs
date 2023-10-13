@@ -29,7 +29,8 @@ namespace CMS.DataAccess
 
         public DbSet<Pastor> Pastors { get; set; }
         public DbSet<Choir> Choirs { get; set; }
-
+        public DbSet<SourceofIncome> SourceofIncomes { get; set; }
+       
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return base.SaveChangesAsync(cancellationToken);
