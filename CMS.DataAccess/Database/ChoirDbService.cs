@@ -28,6 +28,8 @@ namespace CMS.DataAccess.Database
                 {
                     Name = request.Name,
                     Address = request.Address,
+                    Areaofspecialization = request.Areaofspecialization,
+                    PhoneNumber = request.PhoneNumber,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
             }
@@ -83,7 +85,9 @@ namespace CMS.DataAccess.Database
                 {
                     Name = request.Name,
                     Address = request.Address,
-                    Id = request.Id
+                    Id = request.Id,
+                    Areaofspecialization = request.Areaofspecialization,
+                    PhoneNumber = request.PhoneNumber,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
             }

@@ -14,7 +14,7 @@ namespace CMS.Domain.Models
         public decimal Offering { get; set; }
         public decimal Tithe { get; set; }
         public decimal Vow { get; set; }
-        public String SalesofChurchItems { get; set; }
+        public string SalesofChurchItems { get; set; }
         public decimal donation { get; set; }   
 
     }

@@ -9,6 +9,8 @@ namespace CMS.Domain.Dto.Choir
     public class CreateChoirDto
     {
         public string Name { get; set; }
-        public String Address { get; set; }
+        public string Address { get; set; }
+        public string Areaofspecialization { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }
