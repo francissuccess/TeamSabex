@@ -8,6 +8,7 @@ namespace CMS.Domain.Dto.Member
 {
     public class UpdateMemberDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }

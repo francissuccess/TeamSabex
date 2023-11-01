@@ -33,6 +33,7 @@ namespace CMS.DataAccess
         
         public DbSet<Member> Members { get; set; }
         public DbSet<Media> Medias { get; set; }
+        public DbSet<Ushering> Usherings { get; set; }
 
 
 

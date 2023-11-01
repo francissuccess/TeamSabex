@@ -16,6 +16,8 @@ namespace CMS.DataAccess
         DbSet<Member> Members { get; set; }
         DbSet<Media> Medias { get; set; }
 
+        DbSet<Ushering> Usherings { get; set; }
+
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

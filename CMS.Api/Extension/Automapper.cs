@@ -4,6 +4,7 @@ using CMS.Domain.Dto.Media;
 using CMS.Domain.Dto.Member;
 using CMS.Domain.Dto.Pastor;
 using CMS.Domain.Dto.SourceofIncome;
+using CMS.Domain.Dto.Ushering;
 using CMS.Domain.Dtos.Account;
 using CMS.Domain.Models;
 
@@ -40,6 +41,11 @@ namespace CMS.Api.Extension
             CreateMap<CreateMediaDto, Media>();
             CreateMap<Media, UpdateMediaDto>();
             CreateMap<UpdateMediaDto, Media>();
+
+            CreateMap<Ushering, CreateUsheringDto>();
+            CreateMap<CreateUsheringDto, Ushering>();
+            CreateMap<Ushering, UpdateMediaDto>();
+            CreateMap<UpdateUsheringDto, Ushering>();
         }
     }
 }
