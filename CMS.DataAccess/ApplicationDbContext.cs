@@ -30,7 +30,12 @@ namespace CMS.DataAccess
         public DbSet<Pastor> Pastors { get; set; }
         public DbSet<Choir> Choirs { get; set; }
         public DbSet<SourceofIncome> SourceofIncomes { get; set; }
-       
+        
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Media> Medias { get; set; }
+
+
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return base.SaveChangesAsync(cancellationToken);

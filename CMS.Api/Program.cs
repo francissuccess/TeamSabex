@@ -26,6 +26,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IChoir, ChoirRepo>();
 builder.Services.AddScoped<IPastor, PastorRepo>();
 builder.Services.AddScoped<ISourceofIncome, SourceofIncomeRepo>();
+builder.Services.AddScoped<IMember, MemberRepo>();
+builder.Services.AddScoped<IMedia, MediaRepo>();
 
 
 

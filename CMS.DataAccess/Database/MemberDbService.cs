@@ -1,30 +1,35 @@
 ﻿using CMS.Domain.Models;
 using CMS.Domain.Utility;
 using Dapper;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CMS.DataAccess.Database
 {
-    public class PastorDbService
+    public class MemberDbService
     {
         private readonly IDbConnection _connection;
 
-        public PastorDbService(IDbConnection connection)
+        public MemberDbService(IDbConnection connection)
         {
             _connection = connection;
         }
-        public async Task<int> CreatePastor(Pastor request)
+        public async Task<int> CreateMember(Member request)
         {
             try
             {
-                var query = @"[InsertInto_Pastor]";
+                var query = @"[InsertInto_Member]";
                 var param = new
                 {
                     Name = request.Name,
                     PhoneNumber = request.PhoneNumber,
                     Address = request.Address,
-                    Rank = request.Rank,
-                    Description = request.Description,
+                    City = request.City,
+                    Occupation = request.Occupation,
                     CreatedBy = request.CreatedBy,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
@@ -35,34 +40,34 @@ namespace CMS.DataAccess.Database
                 return 0;
             }
         }
-        public async Task<Pastor> SinglePastor(int Id)
+        public async Task<Member> SingleMember(int Id)
         {
-            Pastor pastors = new Pastor();
+            Member members = new Member();
             try
             {
                 var query = @"[GetPastor]";
                 var param = new { Id = Id };
-                return await _connection.QueryFirstAsync<Pastor>(query, param, commandType: CommandType.StoredProcedure);
+                return await _connection.QueryFirstAsync<Member>(query, param, commandType: CommandType.StoredProcedure);
             }
             catch (Exception ex)
             {
 
                 if (ex.Message.Equals("Sequence contain no elements"))
-                    return pastors;
+                    return members;
             }
             return null;
         }
 
 
-        public async Task<APIListResponse3<Pastor>> GetPastors(int pageNumber, int pageSize)
+        public async Task<APIListResponse3<Member>> GetMembers(int pageNumber, int pageSize)
         {
-            var response = new APIListResponse3<Pastor>();
+            var response = new APIListResponse3<Member>();
             try
             {
-                var query = @"[GetAllPastors]";
+                var query = @"[GetAllMembers]";
                 var param = new { pageNumber = pageNumber, pageSize = pageSize };
-                var result = await _connection.QueryAsync<Pastor>(query, param, commandType: CommandType.StoredProcedure);
-                response.Data = PagedList<Pastor>.ToPagedList(result, pageNumber, pageSize);
+                var result = await _connection.QueryAsync<Member>(query, param, commandType: CommandType.StoredProcedure);
+                response.Data = PagedList<Member>.ToPagedList(result, pageNumber, pageSize);
             }
             catch (Exception ex)
             {
@@ -75,18 +80,18 @@ namespace CMS.DataAccess.Database
         }
 
 
-        public async Task<int> UpdatePastor(Pastor request)
+        public async Task<int> UpdateMember(Member request)
         {
             try
             {
-                var query = @"[Update_Pastor]";
+                var query = @"[Update_Member]";
                 var param = new
                 {
                     Name = request.Name,
                     PhoneNumber = request.PhoneNumber,
                     Address = request.Address,
-                    Rank = request.Rank,
-                    Description = request.Description,
+                    City = request.City,
+                    Occupation = request.Occupation,
                     CreatedBy = request.CreatedBy,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);

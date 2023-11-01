@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using CMS.Domain.Dto.Choir;
+using CMS.Domain.Dto.Media;
+using CMS.Domain.Dto.Member;
 using CMS.Domain.Dto.Pastor;
 using CMS.Domain.Dto.SourceofIncome;
+using CMS.Domain.Dtos.Account;
 using CMS.Domain.Models;
 
 namespace CMS.Api.Extension
@@ -25,6 +28,18 @@ namespace CMS.Api.Extension
             CreateMap<SourceofIncome, UpdateSourceofIncomeDto>();
             CreateMap<UpdateSourceofIncomeDto, SourceofIncome>();
 
+            CreateMap<User, UserDto>();
+            CreateMap<User, RegistrationDto>();
+
+            CreateMap<Member, CreateMemberDto>();
+            CreateMap<CreateMemberDto, Member>();
+            CreateMap<Member, UpdateMemberDto>();
+            CreateMap<UpdateMemberDto, Member>();
+
+            CreateMap<Media, CreateMediaDto>();
+            CreateMap<CreateMediaDto, Media>();
+            CreateMap<Media, UpdateMediaDto>();
+            CreateMap<UpdateMediaDto, Media>();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace CMS.DataAccess.Database
                 {
                     Name = request.Name,
                     Address = request.Address,
-                    Areaofspecialization = request.Areaofspecialization,
+                    Description = request.Description,
                     PhoneNumber = request.PhoneNumber,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
@@ -62,7 +62,7 @@ namespace CMS.DataAccess.Database
             var response = new APIListResponse3<Choir>();
             try
             {
-                var query = @"[GetAllChoir]";
+                var query = @"[GetAllChoirs]";
                 var param = new { pageNumber = pageNumber, pageSize = pageSize };
                 var result = await _connection.QueryAsync<Choir>(query, param, commandType: CommandType.StoredProcedure);
                 response.Data = PagedList<Choir>.ToPagedList(result, pageNumber, pageSize);
@@ -85,8 +85,7 @@ namespace CMS.DataAccess.Database
                 {
                     Name = request.Name,
                     Address = request.Address,
-                    Id = request.Id,
-                    Areaofspecialization = request.Areaofspecialization,
+                    Description = request.Description,
                     PhoneNumber = request.PhoneNumber,
                 };
                 return await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);

@@ -45,7 +45,7 @@ namespace CMS.DataAccess.Database
             SourceofIncome sourceofIncomes = new SourceofIncome();
             try
             {
-                var query = @"[GetSourceofIncome]";
+                var query = @"[GetSourceofIncomes]";
                 var param = new { Id = Id };
                 return await _connection.QueryFirstAsync<SourceofIncome>(query, param, commandType: CommandType.StoredProcedure);
             }
@@ -63,14 +63,14 @@ namespace CMS.DataAccess.Database
             var response = new APIListResponse3<SourceofIncome>();
             try
             {
-                var query = @"[GetAllSourceofIncome]";
+                var query = @"[GetAllSourceofIncomes]";
                 var param = new { pageNumber = pageNumber, pageSize = pageSize };
                 var result = await _connection.QueryAsync<SourceofIncome>(query, param, commandType: CommandType.StoredProcedure);
                 response.Data = PagedList<SourceofIncome>.ToPagedList(result, pageNumber, pageSize);
             }
             catch (Exception ex)
             {
-                if (ex.Message.Equals("Sequence contatins no elements"))
+                if (ex.Message.Equals("Sequence contains no elements"))
                 {
                     response.Code = "01";
                 }
